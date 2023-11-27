@@ -1,0 +1,11 @@
+sign_up:
+  path: /signUp
+  controller: App\Controller\UserController::register
+
+login:
+  path: /signIn
+  controller: App\Controller\SecurityController::login
+
+logout:
+  path: /logout
+  controller: App\Controller\SecurityController::logout
