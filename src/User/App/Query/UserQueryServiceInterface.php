@@ -5,7 +5,7 @@ namespace App\User\App\Query;
 
 use App\User\App\Query\Data\UserData;
 
-interface UserQueryInterface
+interface UserQueryServiceInterface
 {
     public function findByUserId(int $userId): UserData;
 

@@ -8,12 +8,12 @@ use App\User\Domain\Service\InputData\RegisterUserInputInterface;
 class RegisterUserInput implements RegisterUserInputInterface
 {
     public function __construct(
-        private string   $firstName,
-        private string   $secondName,
-        private ?string  $description,
-        private string   $email,
-        private string   $password,
-        private string   $avatarName,
+        private string  $firstName,
+        private string  $secondName,
+        private ?string $description,
+        private string  $email,
+        private string  $password,
+        private ?string $avatarName,
     )
     {
     }
@@ -43,7 +43,7 @@ class RegisterUserInput implements RegisterUserInputInterface
         return $this->password;
     }
 
-    public function getAvatarName(): string
+    public function getAvatarName(): ?string
     {
         return $this->avatarName;
     }

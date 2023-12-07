@@ -3,25 +3,28 @@ declare(strict_types=1);
 
 namespace App\Common\Transaction;
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class Transaction implements TransactionInterface
 {
     public function __construct(
-        private EntityManager $entityManager,
+        private EntityManagerInterface $entityManager,
     )
     {
     }
 
-    public function execute($callback): void
+    /**
+     * @throws \Throwable
+     */
+    public function execute(callable $callback): void
     {
         try {
             $this->entityManager->beginTransaction();
             $callback();
-
             $this->entityManager->commit();
-        } catch (\Throwable) {
+        } catch (\Throwable $e) {
             $this->entityManager->rollback();
+            throw $e;
         }
     }
 }

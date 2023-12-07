@@ -5,5 +5,5 @@ namespace App\Common\Transaction;
 
 interface TransactionInterface
 {
-    public function execute($callback): void;
+    public function execute(callable $callback): void;
 }

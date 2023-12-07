@@ -1,0 +1,27 @@
+<div id="{{ id }}">
+    <h1 class="form__title">Войти</h1>
+    <div class="form__inputs">
+        {% include "/base-components/input-base.twig" with {
+            id: "email",
+            type: "email",
+            value: "",
+            placeholder: "Email",
+            name: "email",
+            class: "",
+            autocomplete: "email",
+        } %}
+
+        {% include "/base-components/input-base.twig" with {
+            id: "password",
+            type: "password",
+            value: "",
+            placeholder: "Пароль",
+            name: "password",
+            class: "",
+            autocomplete: "current-password",
+        } %}
+    </div>
+    <input id="_csrf_token" type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <button id="login" class="" type="submit">Войти</button>
+    <button id="login-switch" class="">Регистрация</button>
+</div>

@@ -26,7 +26,7 @@ final class Version20231126162522 extends AbstractMigration
         link_name VARCHAR(255) NOT NULL, 
         description VARCHAR(255) DEFAULT NULL, 
         email VARCHAR(255) NOT NULL, 
-        user_password VARCHAR(255) NOT NULL, 
+        password VARCHAR(255) NOT NULL, 
         avatar_name VARCHAR(255) DEFAULT NULL,
         user_role INT NOT NULL, 
         PRIMARY KEY(user_id)) 

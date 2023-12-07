@@ -15,6 +15,7 @@ class SecurityUser implements UserInterface, PasswordAuthenticatedUserInterface
         private int    $userId,
         private string $email,
         private string $password,
+        private string $linkName,
         int            $role)
     {
         $this->role = UserRole::getTypeByNumber($role);
@@ -61,6 +62,11 @@ class SecurityUser implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserId(): int
     {
         return $this->userId;
+    }
+
+    public function getLinkName(): string
+    {
+        return $this->linkName;
     }
 
     public function eraseCredentials()

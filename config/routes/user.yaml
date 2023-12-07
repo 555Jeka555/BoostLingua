@@ -4,6 +4,6 @@ index:
   controller: App\Controller\UserController::index
 
 main_page:
-  path: /{
+  path: /{linkName}
   methods: GET
-  controller: App\Controller\UserController::index
+  controller: App\Controller\UserController::mainPage

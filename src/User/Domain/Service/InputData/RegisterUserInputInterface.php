@@ -15,5 +15,5 @@ interface RegisterUserInputInterface
 
     public function getPassword(): string;
 
-    public function getAvatarName(): string;
+    public function getAvatarName(): ?string;
 }

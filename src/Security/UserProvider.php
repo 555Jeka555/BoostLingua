@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Security;
 
-use App\Repository\UserRepository;
+use App\User\Infrastructure\Repository\UserRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -25,7 +25,13 @@ class UserProvider implements UserProviderInterface
         {
             throw new UserNotFoundException($username);
         }
-        return new SecurityUser($user->getUserId(), $user->getEmail(), $user->getPassword(), $user->getRole());
+        return new SecurityUser(
+            $user->getUserId(),
+            $user->getEmail(),
+            $user->getPassword(),
+            $user->getLinkName(),
+            $user->getRole(),
+        );
     }
 
     /**
@@ -38,7 +44,13 @@ class UserProvider implements UserProviderInterface
         {
             throw new UserNotFoundException($identifier);
         }
-        return new SecurityUser($user->getUserId(), $user->getEmail(), $user->getPassword(), $user->getRole());
+        return new SecurityUser(
+            $user->getUserId(),
+            $user->getEmail(),
+            $user->getPassword(),
+            $user->getLinkName(),
+            $user->getRole(),
+        );
     }
 
     /**
@@ -56,7 +68,13 @@ class UserProvider implements UserProviderInterface
         {
             throw new UserNotFoundException($user->getUserIdentifier());
         }
-        return new SecurityUser($user->getUserId(), $currentUser->getEmail(), $currentUser->getPassword(), $currentUser->getRole());
+        return new SecurityUser(
+            $user->getUserId(),
+            $user->getEmail(),
+            $user->getPassword(),
+            $user->getLinkName(),
+            $user->getRole()
+        );
     }
 
     public function supportsClass(string $class): bool

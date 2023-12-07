@@ -24,6 +24,7 @@ class PasswordHasher implements PasswordHasherInterface
 
     public function verify(string $hashedPassword, string $plainPassword): bool
     {
+        var_dump($plainPassword);
         if ('' === $plainPassword || $this->isPasswordTooLong($plainPassword)) {
             return false;
         }

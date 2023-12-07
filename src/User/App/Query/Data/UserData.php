@@ -15,7 +15,7 @@ class UserData
         private ?string  $description,
         private string   $email,
         private string   $password,
-        private string   $avatarName,
+        private ?string  $avatarName,
         private UserRole $role,
     )
     {
@@ -56,7 +56,7 @@ class UserData
         return $this->password;
     }
 
-    public function getAvatarName(): string
+    public function getAvatarName(): ?string
     {
         return $this->avatarName;
     }

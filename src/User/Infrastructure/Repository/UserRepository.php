@@ -5,14 +5,14 @@ namespace App\User\Infrastructure\Repository;
 
 use App\User\Domain\Entity\User;
 use App\User\Domain\Repository\UserRepositoryInterface;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
 class UserRepository implements UserRepositoryInterface
 {
     private EntityRepository $repository;
     public function __construct(
-        private EntityManager $entityManager,
+        private EntityManagerInterface $entityManager,
     )
     {
         $this->repository = $this->entityManager->getRepository(User::class);

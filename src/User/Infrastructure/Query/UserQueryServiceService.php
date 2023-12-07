@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace App\User\Infrastructure\Query;
 
 use App\User\App\Query\Data\UserData;
-use App\User\App\Query\UserQueryInterface;
+use App\User\App\Query\UserQueryServiceInterface;
 use App\User\Domain\Entity\User;
 use App\User\Domain\Exception\UserNotFoundException;
 use App\User\Domain\Repository\UserReadRepositoryInterface;
 use App\User\Infrastructure\Converter\UserConverter;
 
-class UserQuery implements UserQueryInterface
+class UserQueryServiceService implements UserQueryServiceInterface
 {
     public function __construct(
         private UserReadRepositoryInterface $userReadRepository,

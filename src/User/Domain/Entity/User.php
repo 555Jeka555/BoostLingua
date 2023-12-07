@@ -14,7 +14,7 @@ class User
         private ?string $description,
         private string  $email,
         private string  $password,
-        private string  $avatarName,
+        private ?string $avatarName,
         private int     $role,
     )
     {
@@ -85,12 +85,12 @@ class User
         $this->password = $password;
     }
 
-    public function getAvatarName(): string
+    public function getAvatarName(): ?string
     {
         return $this->avatarName;
     }
 
-    public function setAvatarName(string $avatarName): void
+    public function setAvatarName(?string $avatarName): void
     {
         $this->avatarName = $avatarName;
     }

@@ -1,5 +1,5 @@
-user:
-    resource: 'routes/user.yaml'
-
 auth:
     resource: 'routes/auth.yaml'
+
+user:
+    resource: 'routes/user.yaml'

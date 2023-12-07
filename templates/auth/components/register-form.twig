@@ -1,0 +1,56 @@
+<div id="register-form" class="hidden">
+    <h1 class="form__title">Зарегестрироваться</h1>
+
+    {% include "/base-components/input-base.twig" with {
+        id: "first-name",
+        type: "",
+        value: "",
+        placeholder: "Имя",
+        name: "first-name",
+        class: "",
+        autocomplete: "",
+    } %}
+
+    {% include "/base-components/input-base.twig" with {
+        id: "second-name",
+        type: "",
+        value: "",
+        placeholder: "Фамилия",
+        name: "second-name",
+        class: "",
+        autocomplete: "",
+    } %}
+
+    {% include "/base-components/input-base.twig" with {
+        id: "description",
+        type: "textarea",
+        value: "",
+        placeholder: "Описание",
+        name: "descriptione",
+        class: "",
+        autocomplete: "",
+    } %}
+
+    {% include "/base-components/input-base.twig" with {
+        id: "email-to-register",
+        type: "",
+        value: "",
+        placeholder: "Email",
+        name: "email-to-register",
+        class: "",
+        autocomplete: "",
+    } %}
+
+    {% include "/base-components/input-base.twig" with {
+        id: "password-to-register",
+        type: "password",
+        value: "",
+        placeholder: "Пароль",
+        name: "password-to-register",
+        class: "",
+        autocomplete: "",
+    } %}
+
+    <button id="register">Зарегистрироваться</button>
+    <button id="register-switch">Вход</button>
+</div>

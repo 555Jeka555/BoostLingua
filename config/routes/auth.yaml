@@ -2,9 +2,15 @@ sign_up:
   path: /signUp
   controller: App\Controller\UserController::register
 
-login:
+login_page:
+  methods: GET
+  path: /login
+  controller: App\Controller\SecurityController::loginPage
+
+login_check:
+  methods: POST
   path: /signIn
-  controller: App\Controller\SecurityController::login
+  controller: App\Controller\SecurityController::authLogin
 
 logout:
   path: /logout
