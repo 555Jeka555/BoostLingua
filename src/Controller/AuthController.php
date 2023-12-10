@@ -16,8 +16,9 @@ class AuthController extends AbstractController
 
     protected function getAuthUser(): ?UserInterface
     {
-        session_start();
-
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
         if (!array_key_exists("user", $_SESSION) || $_SESSION["user"] === null) {
             return null;
         }

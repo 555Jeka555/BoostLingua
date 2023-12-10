@@ -23,8 +23,10 @@ class UserController extends AuthController
 
     public function index(): Response
     {
-        $user = $this->getAuthUser();
-        return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
+        $loggedUser = $this->getAuthUser();
+        $this->isUserAuth();
+
+        return $this->redirectToRoute('main_page', ["linkName" => $loggedUser->getLinkName()]);
     }
 
     public function register(Request $request): Response
@@ -48,8 +50,27 @@ class UserController extends AuthController
         }
     }
 
-    public function mainPage(): Response
+    public function mainPage(string $linkName): Response
     {
-        return $this->render('user/user-page.html.twig');
+        $loggedUser = $this->getAuthUser();
+        $this->isUserAuth();
+
+        $author = $this->userQueryService->findByLinkName($linkName);
+
+        return $this->render('user/main-page.html.twig', [
+                'author' => $author,
+                'loggedUser' => $loggedUser,
+                'posts' => [],
+            ]
+        );
+    }
+
+    private function isUserAuth(): ?Response
+    {
+        $user = $this->getAuthUser();
+        if ($user === null) {
+            return $this->redirectToRoute('login_page');
+        }
+        return null;
     }
 }

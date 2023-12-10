@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}На странице пользователя{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <img src="" alt="avatar">
+        {% if author.userId == loggedUser.userId %}
+            <button id="create-post">
+                Написать пост
+            </button>
+        {% endif %}
+    </div>
+
+    <div>
+        <div>
+            <p>{{ author.firstName }} {{ author.secondName }}</p>
+            <p>{{ author.description }}</p>
+        </div>
+        <div>
+            {% if posts|length == 0 %}
+                <p>У вас нет постов</p>
+            {% else %}
+                {% for post in posts %}
+                    <div>
+                        <p>{{ post.title }}</p>
+                        <p>{{ post.body }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
