@@ -5,12 +5,17 @@
             <meta charset="UTF-8">
             <title>{% block title %}{% endblock %}</title>
             <script type="module" src="/js/ajax.js" defer></script>
+            <link rel="stylesheet" href="/css/general.css">
+            <link rel="stylesheet" href="/css/var.css">
         {% endblock %}
     </head>
-    {% include 'base-components/header.twig' %}
-
     <body>
-        {% block body %}
-        {% endblock %}
+        {% include 'base-components/header.twig' %}
+
+        <main class="main">
+                {% block body %}
+                {% endblock %}
+        </main>
     </body>
+
 </html>

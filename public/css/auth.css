@@ -1,0 +1,16 @@
+.form {
+    border-radius: 10px;
+    background: var(--white);
+}
+
+.form-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.form-title {
+    color: var(--black-accent);
+    font: var(--text-header)
+}

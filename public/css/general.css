@@ -1,3 +1,50 @@
+.input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 45px;
+    border: none;
+    background-color: var(--background-dark);
+    color: var(--grey-description);
+    font: var(--text-input);
+}
+
+.button {
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: var(--black-accent);
+    color: var(--white);
+    font: var(--text-input);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+}
+
+.header-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.main {
+    background-color: var(--gray-body);
+    height: 100vh;
+}
+
 .hidden {
     display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }

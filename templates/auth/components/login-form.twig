@@ -1,6 +1,6 @@
-<div id="{{ id }}">
-    <h1 class="form__title">Войти</h1>
-    <div class="form__inputs">
+<div class="form" id="{{ id }}">
+    <h1 class="form-title">Войти</h1>
+    <div class="">
         {% include "/base-components/input-base.twig" with {
             id: "email",
             type: "email",
@@ -22,6 +22,6 @@
         } %}
     </div>
     <input id="_csrf_token" type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-    <button id="login" class="" type="submit">Войти</button>
-    <button id="login-switch" class="">Регистрация</button>
+    <button class="button" id="login" type="submit">Войти</button>
+    <button class="button" id="login-switch">Регистрация</button>
 </div>

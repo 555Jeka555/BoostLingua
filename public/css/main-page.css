@@ -1,0 +1,32 @@
+.main-page-body {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px
+}
+
+.main-page-author {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-create-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-page-avatar {
+    font: var(--text-input);
+    color: var(--white);
+    background-color: var(--white);
+    border-radius: 10px;
+    padding-top: 20px;
+    height: 295px;
+    width: 300px;
+}

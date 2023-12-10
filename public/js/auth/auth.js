@@ -17,7 +17,7 @@ const emailToRegisterInput = document.getElementById("email-to-register");
 const passwordToRegisterInput = document.getElementById("password-to-register");
 const hiddenClass = "hidden";
 
-function loginFetch(e) {
+async function loginFetch(e) {
     e.preventDefault();
 
     const jsonData = {
@@ -34,7 +34,10 @@ function loginFetch(e) {
         body: JSON.stringify(jsonData),
     }
 
-    fetch(urls.loginUser(), postData);
+    const response = await fetch(urls.loginUser(), postData);
+    if (response.ok) {
+        location.replace('/');
+    }
 }
 
 function registerFetch(e) {

@@ -1,3 +1,9 @@
 :root {
-
+    --background-dark: #F0F1F6;
+    --grey-description: #696E76;
+    --gray-body: #EEE;
+    --white: #FFF;
+    --text-input: 400 16px/21.6px Roboto, serif;
+    --text-header: 700 28px/32.2px Roboto, serif;
+    --black-accent: #15293E;
 }

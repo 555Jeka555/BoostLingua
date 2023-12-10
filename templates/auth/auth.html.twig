@@ -4,18 +4,20 @@
 
 {% block head %}
     {{ parent() }}
-    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/auth.css">
     <script type="module" src="js/auth/auth.js" defer></script>
 {% endblock %}
 
 {% block content %}
 
-    {% include "auth/components/login-form.twig" with {
-        id: "login-form",
-    } %}
+    <div class="form-center">
+        {% include "auth/components/login-form.twig" with {
+            id: "login-form",
+        } %}
 
-    {% include "auth/components/register-form.twig" with {
-        id: "register-form",
-    } %}
+        {% include "auth/components/register-form.twig" with {
+            id: "register-form",
+        } %}
+    </div>
 
 {% endblock %}

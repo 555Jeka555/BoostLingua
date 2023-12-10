@@ -5,37 +5,40 @@
 {% block head %}
     {{ parent() }}
     <script type="module" src="/js/ajax.js" defer></script>
+    <link rel="stylesheet" href="/css/main-page.css">
 {% endblock %}
 
 {% block body %}
-    <div>
-        <img src="" alt="avatar">
-        {% if author.userId == loggedUser.userId %}
-            <a href="{{ path('create_post_page', {
-                    'linkName': author.linkName
-                })
-            }}">
-                Написать пост
-            </a>
-        {% endif %}
-    </div>
-
-    <div>
-        <div>
-            <p>{{ author.firstName }} {{ author.secondName }}</p>
-            <p>{{ author.description }}</p>
-        </div>
-        <div>
-            {% if posts|length == 0 %}
-                <p>У вас нет постов</p>
-            {% else %}
-                {% for post in posts %}
-                    <div>
-                        <p>{{ post.title }}</p>
-                        <p>{{ post.body }}</p>
-                    </div>
-                {% endfor %}
+    <div class="main-page-body">
+        <div class="main-page-author">
+            <img class="main-page-avatar" src="img/avatar.png" alt="avatar">
+            {% if author.userId == loggedUser.userId %}
+                <a class="button button-create-post" href="{{ path('create_post_page', {
+                        'linkName': author.linkName
+                    })
+                }}">
+                    Написать пост
+                </a>
             {% endif %}
+        </div>
+
+        <div>
+            <div>
+                <p>{{ author.firstName }} {{ author.secondName }}</p>
+                <p>{{ author.description }}</p>
+            </div>
+            <div>
+                {% if posts|length == 0 %}
+                    <p>У вас нет постов</p>
+                {% else %}
+                    {% for post in posts %}
+                        <div>
+                            <p>{{ post.title }}</p>
+                            <p>{{ post.body }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
