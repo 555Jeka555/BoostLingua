@@ -4,6 +4,8 @@
 
 {% block head %}
     {{ parent() }}
+    <link rel="stylesheet" href="/css/general.css">
+    <script type="module" src="/js/post/post.js" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -13,13 +15,23 @@
         </p>
 
         {% include "/base-components/input-base.twig" with {
+            id: "authorId",
+            type: "authorId",
+            value: authorId,
+            placeholder: "",
+            name: "authorId",
+            class: "hidden",
+            autocomplete: "",
+        } %}
+
+        {% include "/base-components/input-base.twig" with {
             id: "title",
             type: "title",
             value: title,
             placeholder: "Введите заголовок поста",
             name: "title",
             class: "",
-            autocomplete: "title",
+            autocomplete: "",
         } %}
 
         {% include "/base-components/input-base.twig" with {
@@ -29,10 +41,10 @@
             placeholder: "Начните писать ваш пост",
             name: "body",
             class: "",
-            autocomplete: "body",
+            autocomplete: "",
         } %}
 
-         <button>
+         <button id="create-post">
              Опубликовать пост
          </button>
     </div>

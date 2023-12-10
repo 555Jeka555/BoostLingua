@@ -11,6 +11,7 @@
         </id>
 
         <field name="subscribeId" column="subscribe_id" type="integer" nullable="true"/>
+        <field name="authorId" column="author_id" type="integer" nullable="false"/>
         <field name="title" column="title" type="string" length="255" nullable="false"/>
         <field name="body" column="body" type="text" nullable="false"/>
         <field name="cover" column="cover" type="string" length="255" nullable="true"/>

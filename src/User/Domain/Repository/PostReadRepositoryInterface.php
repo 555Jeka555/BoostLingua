@@ -10,6 +10,12 @@ interface PostReadRepositoryInterface
     public function findById(int $postId): ?Post;
 
     /**
+     * @param int $authorId
+     * @return Post[]
+     */
+    public function findByAuthorId(int $authorId): array;
+
+    /**
      * @return Post[]
      */
     public function findAll(): array;

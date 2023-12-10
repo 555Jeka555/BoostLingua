@@ -22,7 +22,6 @@ class PostRepository implements PostRepositoryInterface
     public function findById(int $postId): ?Post
     {
         return $this->repository->findOneBy(['postId' => $postId]);
-
     }
 
     public function findAll(): array
@@ -47,5 +46,10 @@ class PostRepository implements PostRepositoryInterface
     {
         $this->entityManager->remove($post);
         $this->entityManager->flush();
+    }
+
+    public function findByAuthorId(int $authorId): array
+    {
+        return $this->repository->findBy(['authorId' => $authorId]);
     }
 }

@@ -22,6 +22,7 @@ final class Version20231210130558 extends AbstractMigration
         $this->addSql('CREATE TABLE post (
         post_id INT AUTO_INCREMENT NOT NULL,
         subscribe_id INT DEFAULT NULL,
+        author_id INT NOT NULL,
         title VARCHAR(255) NOT NULL,
         body TEXT NOT NULL,
         cover VARCHAR(255) DEFAULT NULL,

@@ -9,6 +9,7 @@ class AddPostInput implements AddPostInputInterface
 {
     public function __construct(
         private ?int    $subscribeId,
+        private int     $authorId,
         private string  $title,
         private string  $body,
         private ?string $cover,
@@ -19,6 +20,11 @@ class AddPostInput implements AddPostInputInterface
     public function getSubscribeId(): ?int
     {
         return $this->subscribeId;
+    }
+
+    public function getAuthorId(): int
+    {
+        return $this->authorId;
     }
 
     public function getTitle(): string

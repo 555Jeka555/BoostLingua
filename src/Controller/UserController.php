@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Input\RegisterUserInput;
+use App\User\App\Query\PostQueryServiceInterface;
 use App\User\App\Query\UserQueryServiceInterface;
 use App\User\App\Service\UserAppService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,7 +16,7 @@ class UserController extends AuthController
     public function __construct(
         private UserAppService            $userAppService,
         private UserQueryServiceInterface $userQueryService,
-
+        private PostQueryServiceInterface $postQueryService,
     )
     {
     }
@@ -55,10 +56,12 @@ class UserController extends AuthController
         $this->isUserAuth();
         $author = $this->userQueryService->findByLinkName($linkName);
 
+        $posts = $this->postQueryService->findByAuthorId($author->getUserId());
+
         return $this->render('user/main-page.html.twig', [
                 'author' => $author,
                 'loggedUser' => $loggedUser,
-                'posts' => [],
+                'posts' => $posts,
             ]
         );
     }

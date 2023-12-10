@@ -8,6 +8,7 @@ class PostData
     public function __construct(
         private int     $postId,
         private ?int    $subscribeId,
+        private int     $authorId,
         private string  $title,
         private string  $body,
         private ?string $cover,
@@ -38,5 +39,10 @@ class PostData
     public function getCover(): ?string
     {
         return $this->cover;
+    }
+
+    public function getAuthorId(): int
+    {
+        return $this->authorId;
     }
 }

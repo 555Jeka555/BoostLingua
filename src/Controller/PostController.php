@@ -33,32 +33,34 @@ class PostController extends AuthController
         }
 
         return $this->render('post/post-form.html.twig', [
+                'authorId' => $author->getUserId(),
                 'title' => '',
                 'body' => '',
             ]
         );
     }
 
-    public function createPost(string $linkName, Request $request): Response
+    public function createPost(Request $request): Response
     {
-        $author = $this->userQueryService->findByLinkName($linkName);
-        $user = $this->getAuthUser();
-        if ($user->getUserId() !== $author->getUserId()) {
-            return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
-        }
-
         try {
             $data = json_decode($request->getContent(), true);
 
+            $author = $this->userQueryService->findByUserId((int)$data['authorId']);
+            $user = $this->getAuthUser();
+            if ($user->getUserId() !== $author->getUserId()) {
+                return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
+            }
+
             $input = new AddPostInput(
                 null,
+                (int)$data['authorId'],
                 $data['title'],
                 $data['body'],
                 null,
             );
 
             $this->postAppService->createPost($input);
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('index');
         } catch (\Exception $e) {
             return new JsonResponse(['message' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }

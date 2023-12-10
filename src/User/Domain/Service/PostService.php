@@ -20,6 +20,7 @@ class PostService
     {
        $post = new Post(
             $input->getSubscribeId(),
+            $input->getAuthorId(),
             $input->getTitle(),
             $input->getBody(),
             $input->getCover(),

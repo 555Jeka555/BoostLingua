@@ -13,6 +13,7 @@ class PostConverter
         return new PostData(
             $post->getPostId(),
             $post->getSubscribeId(),
+            $post->getAuthorId(),
             $post->getTitle(),
             $post->getBody(),
             $post->getCover(),

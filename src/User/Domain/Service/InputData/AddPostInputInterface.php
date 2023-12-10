@@ -7,6 +7,8 @@ interface AddPostInputInterface
 {
     public function getSubscribeId(): ?int;
 
+    public function getAuthorId(): int;
+
     public function getTitle(): string;
 
     public function getBody(): string;

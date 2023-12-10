@@ -4,11 +4,11 @@ create_post_page:
   controller: App\Controller\PostController::createPostPage
 
 create_post:
-  path: /{linkName}/create-post
+  path: /create-post
   methods: POST
   controller: App\Controller\PostController::createPost
 
 delete_post:
-  path: /{linkName}/{postId}/delete-post
+  path: /{postId}/delete-post
   methods: POST
   controller: App\Controller\PostController::deletePost

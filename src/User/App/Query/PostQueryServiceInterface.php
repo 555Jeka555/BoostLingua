@@ -12,5 +12,10 @@ interface PostQueryServiceInterface
     /**
      * @return PostData[]
      */
+    public function findByAuthorId(int $authorId): array;
+
+    /**
+     * @return PostData[]
+     */
     public function findALl(): array;
 }

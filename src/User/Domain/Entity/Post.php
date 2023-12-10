@@ -9,6 +9,7 @@ class Post
 
     public function __construct(
         private ?int    $subscribeId,
+        private int     $authorId,
         private string  $title,
         private string  $body,
         private ?string $cover,
@@ -59,5 +60,10 @@ class Post
     public function setCover(?string $cover): void
     {
         $this->cover = $cover;
+    }
+
+    public function getAuthorId(): int
+    {
+        return $this->authorId;
     }
 }

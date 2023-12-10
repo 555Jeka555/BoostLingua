@@ -40,6 +40,16 @@ class PostQueryService implements PostQueryServiceInterface
         return $postsData;
     }
 
+    public function findByAuthorId(int $authorId): array
+    {
+        $posts = $this->postReadRepository->findByAuthorId($authorId);
+        $postsData = [];
+        foreach ($posts as $post) {
+            $postsData[] = $this->postConverter::createPostData($post);
+        }
+        return $postsData;
+    }
+
     /**
      * @throws PostNotFoundException
      */
