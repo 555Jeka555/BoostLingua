@@ -10,7 +10,7 @@ use App\User\Domain\Exception\UserNotFoundException;
 use App\User\Domain\Repository\UserReadRepositoryInterface;
 use App\User\Infrastructure\Converter\UserConverter;
 
-class UserQueryServiceService implements UserQueryServiceInterface
+class UserQueryService implements UserQueryServiceInterface
 {
     public function __construct(
         private UserReadRepositoryInterface $userReadRepository,
@@ -43,6 +43,9 @@ class UserQueryServiceService implements UserQueryServiceInterface
         return $this->userConverter::createUserData($user);
     }
 
+    /**
+     * @throws UserNotFoundException
+     */
     private function asserUserExists(?User $user): void
     {
         if ($user === null) {

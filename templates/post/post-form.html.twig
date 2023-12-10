@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}На странице постов{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <p>
+            Новый пост
+        </p>
+
+        {% include "/base-components/input-base.twig" with {
+            id: "title",
+            type: "title",
+            value: title,
+            placeholder: "Введите заголовок поста",
+            name: "title",
+            class: "",
+            autocomplete: "title",
+        } %}
+
+        {% include "/base-components/input-base.twig" with {
+            id: "body",
+            type: "body",
+            value: body,
+            placeholder: "Начните писать ваш пост",
+            name: "body",
+            class: "",
+            autocomplete: "body",
+        } %}
+
+         <button>
+             Опубликовать пост
+         </button>
+    </div>
+
+
+{% endblock %}

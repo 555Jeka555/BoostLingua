@@ -1,18 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}На странице пользователя{% endblock %}
+{% block title %}{{ author.firstName }} {{ author.secondName }}{% endblock %}
 
 {% block head %}
     {{ parent() }}
+    <script type="module" src="js/ajax.js" defer></script>
 {% endblock %}
 
 {% block body %}
     <div>
         <img src="" alt="avatar">
         {% if author.userId == loggedUser.userId %}
-            <button id="create-post">
+            <a href="{{ path('create_post_page', {
+                    'linkName': author.linkName
+                })
+            }}">
                 Написать пост
-            </button>
+            </a>
         {% endif %}
     </div>
 
@@ -34,5 +38,4 @@
             {% endif %}
         </div>
     </div>
-
 {% endblock %}

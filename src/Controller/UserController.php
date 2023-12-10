@@ -6,7 +6,6 @@ namespace App\Controller;
 use App\Controller\Input\RegisterUserInput;
 use App\User\App\Query\UserQueryServiceInterface;
 use App\User\App\Service\UserAppService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,7 +53,6 @@ class UserController extends AuthController
     {
         $loggedUser = $this->getAuthUser();
         $this->isUserAuth();
-
         $author = $this->userQueryService->findByLinkName($linkName);
 
         return $this->render('user/main-page.html.twig', [

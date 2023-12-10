@@ -19,7 +19,7 @@ class UserAppService
     public function registerUser(RegisterUserInputInterface $input): int
     {
         $userId = null;
-        $callback = function () use($input, &$userId): void {
+        $callback = function () use ($input, &$userId): void {
             $userId = $this->userService->createUser($input);
         };
 

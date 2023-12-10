@@ -1,0 +1,14 @@
+create_post_page:
+  path: /{linkName}/add-post
+  methods: GET
+  controller: App\Controller\PostController::createPostPage
+
+create_post:
+  path: /{linkName}/create-post
+  methods: POST
+  controller: App\Controller\PostController::createPost
+
+delete_post:
+  path: /{linkName}/{postId}/delete-post
+  methods: POST
+  controller: App\Controller\PostController::deletePost
