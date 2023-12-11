@@ -30,7 +30,7 @@ class PostAppService
     public function deletePost(int $postId): void
     {
         $callback = function () use($postId): void {
-            $this->deletePost($postId);
+            $this->postService->deletePost($postId);
         };
 
         $this->transaction->execute($callback);

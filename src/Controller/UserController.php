@@ -24,7 +24,10 @@ class UserController extends AuthController
     public function index(): Response
     {
         $loggedUser = $this->getAuthUser();
-        $this->isUserAuth();
+        $user = $this->getAuthUser();
+        if ($user === null) {
+            return $this->redirectToRoute('login_page');
+        }
 
         return $this->redirectToRoute('main_page', ["linkName" => $loggedUser->getLinkName()]);
     }
@@ -53,7 +56,10 @@ class UserController extends AuthController
     public function mainPage(string $linkName): Response
     {
         $loggedUser = $this->getAuthUser();
-        $this->isUserAuth();
+        $user = $this->getAuthUser();
+        if ($user === null) {
+            return $this->redirectToRoute('login_page');
+        }
         $author = $this->userQueryService->findByLinkName($linkName);
 
         $posts = $this->postQueryService->findByAuthorId($author->getUserId());
@@ -66,12 +72,4 @@ class UserController extends AuthController
         );
     }
 
-    private function isUserAuth(): ?Response
-    {
-        $user = $this->getAuthUser();
-        if ($user === null) {
-            return $this->redirectToRoute('login_page');
-        }
-        return null;
-    }
 }

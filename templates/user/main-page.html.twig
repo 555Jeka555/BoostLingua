@@ -5,6 +5,7 @@
 {% block head %}
     {{ parent() }}
     <script type="module" src="/js/ajax.js" defer></script>
+    <script type="module" src="/js/main-page/main-page.js" defer></script>
     <link rel="stylesheet" href="/css/main-page.css">
 {% endblock %}
 
@@ -22,19 +23,22 @@
             {% endif %}
         </div>
 
-        <div>
+        <div class="main-page-posts">
             <div>
-                <p>{{ author.firstName }} {{ author.secondName }}</p>
+                <p class="main-page-name">{{ author.firstName }} {{ author.secondName }}</p>
                 <p>{{ author.description }}</p>
             </div>
-            <div>
+            <div class="post-tape">
                 {% if posts|length == 0 %}
                     <p>У вас нет постов</p>
                 {% else %}
                     {% for post in posts %}
-                        <div>
-                            <p>{{ post.title }}</p>
-                            <p>{{ post.body }}</p>
+                        <div class="post">
+                            <div class="post-title">
+                                <p class="post-title-text">{{ post.title }}</p>
+                                <img id="{{ post.postId }}" class="trash" src="img/trash.png" alt="trash">
+                            </div>
+                            <p class="post-body">{{ post.body }}</p>
                         </div>
                     {% endfor %}
                 {% endif %}

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Input\AddPostInput;
-use App\User\App\Query\Data\UserData;
+use App\User\App\Query\PostQueryServiceInterface;
 use App\User\App\Query\UserQueryServiceInterface;
 use App\User\App\Service\PostAppService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,7 +16,7 @@ class PostController extends AuthController
     public function __construct(
         private PostAppService            $postAppService,
         private UserQueryServiceInterface $userQueryService,
-
+        private PostQueryServiceInterface $postQueryService,
     )
     {
     }
@@ -66,11 +66,11 @@ class PostController extends AuthController
         }
     }
 
-    public function deletePost(string $linkName, int $postId): Response
+    public function deletePost(int $postId): Response
     {
-        $author = $this->userQueryService->findByLinkName($linkName);
+        $post = $this->postQueryService->findByPostId($postId);
         $user = $this->getAuthUser();
-        if ($user->getUserId() !== $author->getUserId()) {
+        if ($user->getUserId() !== $post->getAuthorId()) {
             return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
         }
 

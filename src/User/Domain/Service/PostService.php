@@ -29,6 +29,9 @@ class PostService
         return $this->postRepository->add($post);
     }
 
+    /**
+     * @throws PostNotFoundException
+     */
     public function deletePost(int $postId): void
     {
         $post = $this->postRepository->findById($postId);

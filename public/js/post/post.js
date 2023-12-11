@@ -23,11 +23,8 @@ function createPostFetch(e) {
         body: JSON.stringify(jsonData),
     }
 
-    console.log(jsonData)
-
     fetch(urls.createPost(), postData);
 }
-
 
 function initEventListeners() {
     createPostButton.addEventListener("click", createPostFetch);

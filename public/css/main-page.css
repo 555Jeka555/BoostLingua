@@ -4,7 +4,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 40px
+    gap: 40px;
+    overflow-x: hidden;
 }
 
 .main-page-author {
@@ -23,10 +24,58 @@
 
 .main-page-avatar {
     font: var(--text-input);
-    color: var(--white);
     background-color: var(--white);
     border-radius: 10px;
     padding-top: 20px;
     height: 295px;
     width: 300px;
+}
+
+.main-page-name {
+    color: var(--black-accent);
+    font: var(--text-header)
+}
+
+.main-page-posts {
+    width: 575px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-tape {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post {
+    width: 575px;
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.post-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post-title-text {
+    font: var(--text-title);
+    color: var(--black-accent);
+}
+
+.post-body {
+    margin-top: 10px;
+    font: var(--text-input);
+}
+
+.trash {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
 }

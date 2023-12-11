@@ -3,7 +3,8 @@
     --grey-description: #696E76;
     --gray-body: #EEE;
     --white: #FFF;
-    --text-input: 400 16px/21.6px Roboto, serif;
-    --text-header: 700 28px/32.2px Roboto, serif;
+    --text-input: 400 18px/21.6px Roboto, serif;
+    --text-header: 700 32px/32.2px Roboto, serif;
+    --text-title: 700 22px/32.2px Roboto, serif;
     --black-accent: #15293E;
 }

@@ -3,3 +3,6 @@ auth:
 
 user:
     resource: 'routes/user.yaml'
+
+post:
+    resource: 'routes/post.yaml'
