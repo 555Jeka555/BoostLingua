@@ -16,6 +16,7 @@ const descriptionNameInput = document.getElementById("description");
 const emailToRegisterInput = document.getElementById("email-to-register");
 const passwordToRegisterInput = document.getElementById("password-to-register");
 const hiddenClass = "hidden";
+const renderClass = 'form';
 
 async function loginFetch(e) {
     e.preventDefault();
@@ -66,12 +67,14 @@ function switchOnRegister(e) {
     e.preventDefault();
     registerForm.classList.remove(hiddenClass);
     loginForm.classList.add(hiddenClass);
+    loginForm.classList.remove(renderClass);
 }
 
 function switchOnLogin(e) {
     e.preventDefault();
     loginForm.classList.remove(hiddenClass);
     registerForm.classList.add(hiddenClass);
+    registerForm.classList.remove(renderClass);
 }
 
 function initEventListeners() {

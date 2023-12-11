@@ -1,6 +1,5 @@
 <div class="form" id="{{ id }}">
     <h1 class="form-title">Войти</h1>
-    <div class="">
         {% include "/base-components/input-base.twig" with {
             id: "email",
             type: "email",
@@ -20,7 +19,6 @@
             class: "",
             autocomplete: "current-password",
         } %}
-    </div>
     <input id="_csrf_token" type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     <button class="button" id="login" type="submit">Войти</button>
     <button class="button" id="login-switch">Регистрация</button>
