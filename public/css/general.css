@@ -1,5 +1,5 @@
 .input {
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 10px;
     width: 300px;
     height: 45px;
@@ -10,6 +10,7 @@
 }
 
 .button {
+    cursor: pointer;
     width: 300px;
     height: 45px;
     border-radius: 10px;

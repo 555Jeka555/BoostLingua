@@ -29,7 +29,7 @@ class PostController extends AuthController
 
         $user = $this->getAuthUser();
         if ($user->getUserId() !== $author->getUserId()) {
-            return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
+            return $this->redirectToRoute('index');
         }
 
         return $this->render('post/post-form.html.twig', [
@@ -48,7 +48,7 @@ class PostController extends AuthController
             $author = $this->userQueryService->findByUserId((int)$data['authorId']);
             $user = $this->getAuthUser();
             if ($user->getUserId() !== $author->getUserId()) {
-                return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
+                return $this->redirectToRoute('index');
             }
 
             $input = new AddPostInput(
@@ -71,7 +71,7 @@ class PostController extends AuthController
         $post = $this->postQueryService->findByPostId($postId);
         $user = $this->getAuthUser();
         if ($user->getUserId() !== $post->getAuthorId()) {
-            return $this->redirectToRoute('main_page', ["linkName" => $user->getLinkName()]);
+            return $this->redirectToRoute('index');
         }
 
         try {

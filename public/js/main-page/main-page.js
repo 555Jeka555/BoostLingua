@@ -13,7 +13,10 @@ async function deletePost(e) {
         body: JSON.stringify({}),
     }
 
-    fetch(urls.deletePost(target.id), postData);
+    const response = await fetch(urls.deletePost(target.id), postData);
+    if (response.ok) {
+        location.reload();
+    }
 }
 
 function initEventListeners() {

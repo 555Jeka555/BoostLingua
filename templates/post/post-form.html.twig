@@ -1,52 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}На странице постов{% endblock %}
+{% block title %}Новый пост{% endblock %}
 
 {% block head %}
     {{ parent() }}
-    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/post-form.css">
     <script type="module" src="/js/post/post.js" defer></script>
 {% endblock %}
 
 {% block body %}
-    <div>
-        <p>
-            Новый пост
-        </p>
+    <div class="form-center">
+        <div class="form-background">
+            <p class="form-title">
+                Новый пост
+            </p>
 
-        {% include "/base-components/input-base.twig" with {
-            id: "authorId",
-            type: "authorId",
-            value: authorId,
-            placeholder: "",
-            name: "authorId",
-            class: "hidden",
-            autocomplete: "",
-        } %}
+            {% include "/base-components/input-base.twig" with {
+                id: "authorId",
+                type: "authorId",
+                value: authorId,
+                placeholder: "",
+                name: "authorId",
+                class: "hidden",
+                autocomplete: "",
+            } %}
 
-        {% include "/base-components/input-base.twig" with {
-            id: "title",
-            type: "title",
-            value: title,
-            placeholder: "Введите заголовок поста",
-            name: "title",
-            class: "",
-            autocomplete: "",
-        } %}
+            {% include "/base-components/input-base.twig" with {
+                id: "title",
+                type: "text",
+                value: title,
+                placeholder: "Введите заголовок поста",
+                name: "title",
+                class: "form-input",
+                autocomplete: "",
+            } %}
 
-        {% include "/base-components/input-base.twig" with {
-            id: "body",
-            type: "body",
-            value: body,
-            placeholder: "Начните писать ваш пост",
-            name: "body",
-            class: "",
-            autocomplete: "",
-        } %}
+            {% include "/base-components/input-base.twig" with {
+                id: "body",
+                type: "textarea",
+                value: body,
+                placeholder: "Начните писать ваш пост",
+                name: "body",
+                class: "form-input",
+                autocomplete: "",
+            } %}
 
-         <button id="create-post">
-             Опубликовать пост
-         </button>
+            <div class="form-bottom">
+                <a href="{{ path('index') }}" class="link-back">
+                    Назад
+                </a>
+                <button class="button" id="create-post">
+                    Опубликовать пост
+                </button>
+            </div>
+        </div>
     </div>
 
 

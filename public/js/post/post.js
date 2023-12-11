@@ -6,7 +6,7 @@ const authorIdInput = document.getElementById("authorId");
 const titleInput = document.getElementById("title");
 const bodyInput = document.getElementById("body");
 
-function createPostFetch(e) {
+async function createPostFetch(e) {
     e.preventDefault();
 
     const jsonData = {
@@ -23,7 +23,10 @@ function createPostFetch(e) {
         body: JSON.stringify(jsonData),
     }
 
-    fetch(urls.createPost(), postData);
+    const response = await fetch(urls.createPost(), postData);
+    if (response.ok) {
+        location.replace('/');
+    }
 }
 
 function initEventListeners() {
